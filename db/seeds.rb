@@ -19,4 +19,7 @@ stanza = Category.create(name: "Stanza")
 epigram = Category.create(name: "Epigram")
 epitaph = Category.create(name: "Epitaph")
 
+
+Poem.create(title:"The Seed", author: "Naomi", stanza: "The fast wind blow like my anxious thoughts that flows through my brain, sometimes days are like the storm wind, somedays are like a calm lake where the wind is gentle and pleasent. It's amazing how the clouds can dictate my moods and a single seed can store so many memories and create another seed, but a single fire can destroy it all", genre: "Reflective", image_url: "https://images.app.goo.gl/9f6hbJE1hSjj8cxLA" category_id: free_verse.id )
+
  
