@@ -1,6 +1,6 @@
 class Api::V1::PoemsController < ApplicationController
 
-    
+
     def create
         poem = Poem.new(poem_params)
         if poem.save
@@ -13,7 +13,8 @@ class Api::V1::PoemsController < ApplicationController
 
     def index
         poems = Poem.all
-        render json: poems #making sure that rails can read the data from JSON
+        # render json: poems #making sure that rails can read the data from JSON
+        render json: PoemSerializer.new(poems)
     end
 
 
