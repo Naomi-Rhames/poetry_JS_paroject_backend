@@ -6,7 +6,7 @@ class Api::V1::PoemsController < ApplicationController
         if poem.save
             render json: poem, status: :accepted
         else
-            render json: {errors: poem.error.full_messages}, status: :unprocessible_entity #error 422
+            render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity #error 422
         end
     end
 
@@ -22,7 +22,7 @@ class Api::V1::PoemsController < ApplicationController
     def poem_params
          #.require is requiring the top level hash
          #.permit is perrmitting the attributes
-        params.require(:poem).permit(:title, :name, :stanza, :image_url, :category_id)
+        params.require(:poem).permit(:title, :author, :stanza, :image_url, :category_id)
     end
 
 end
