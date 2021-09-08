@@ -17,6 +17,15 @@ class Api::V1::PoemsController < ApplicationController
         render json: PoemSerializer.new(poems)
     end
 
+    def update
+        poem = Poem.find(params[:id])
+        if poem.update(poem_params, other_params)
+            render json: PoemSerializer.new(poems)
+        else
+            render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity
+        end
+    end
+
 
     private
     def poem_params
@@ -24,5 +33,5 @@ class Api::V1::PoemsController < ApplicationController
          #.permit is perrmitting the attributes
         params.require(:poem).permit(:title, :author, :stanza, :image_url, :category_id)
     end
-
+    
 end
