@@ -4,7 +4,7 @@ class Api::V1::PoemsController < ApplicationController
     def create
         poem = Poem.new(poem_params)
         if poem.save
-            render json: poem, status: :accepted
+            render json: PoemSerializer.new(poem)
         else
             render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity #error 422
         end
@@ -19,8 +19,8 @@ class Api::V1::PoemsController < ApplicationController
 
     def update
         poem = Poem.find(params[:id])
-        if poem.update(poem_params, other_params)
-            render json: PoemSerializer.new(poems)
+        if poem.update(poem_params)
+            render json: PoemSerializer.new(poem), status: :accepted
         else
             render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity
         end
@@ -31,7 +31,7 @@ class Api::V1::PoemsController < ApplicationController
     def poem_params
          #.require is requiring the top level hash
          #.permit is perrmitting the attributes
-        params.require(:poem).permit(:title, :author, :stanza, :image_url, :category_id)
+        params.require(:poem).permit(:title, :author, :genre, :stanza, :image_url, :category_id)
     end
     
 end
