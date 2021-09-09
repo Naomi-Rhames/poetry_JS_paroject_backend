@@ -1,4 +1,4 @@
 class PoemSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :author, :stanza, :image_url, :category_id, :category
+  attributes :title, :genre, :author, :stanza, :image_url, :category_id, :category
 end
