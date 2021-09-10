@@ -6,7 +6,7 @@ class Api::V1::PoemsController < ApplicationController
         if poem.save
             render json: PoemSerializer.new(poem)
         else
-            render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity #error 422
+            render json: {errors: poem.errors.full_messages}, status: :unprocessable_entity #error 422
         end
     end
 
@@ -22,7 +22,7 @@ class Api::V1::PoemsController < ApplicationController
         if poem.update(poem_params)
             render json: PoemSerializer.new(poem), status: :accepted
         else
-            render json: {errors: poem.errors.full_messages}, status: :unprocessible_entity
+            render json: {errors: poem.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
