@@ -22,6 +22,7 @@ class Api::V1::PoemsController < ApplicationController
         if poem.update(poem_params)
             render json: PoemSerializer.new(poem), status: :accepted
         else
+           
             render json: {errors: poem.errors.full_messages}, status: :unprocessable_entity
         end
     end
