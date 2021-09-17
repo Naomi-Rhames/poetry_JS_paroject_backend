@@ -4,7 +4,7 @@ class Api::V1::PoemsController < ApplicationController
     def create
         poem = Poem.new(poem_params)
         if poem.save
-            render json: PoemSerializer.new(poem)
+            render json: PoemSerializer.new(poem) #this render here is actually is turning this Poem into a hash and also a string so that it can be able to send Poems as a string format with another status code
         else
             render json: {errors: poem.errors.full_messages}, status: :unprocessable_entity #error 422
         end
