@@ -6,7 +6,6 @@ class CreatePoems < ActiveRecord::Migration[6.1]
       t.string :stanza
       t.string :genre
       t.string :image_url
-  
 
       t.timestamps
     end

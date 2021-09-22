@@ -4,9 +4,16 @@ Rails.application.routes.draw do
   namespace :api do
 
     namespace :v1 do
-      resources :poems, only: [:index, :create, :update]
+      resources :poems, only: [:index, :create, :update, :destroy]
+     
+      # get '/search/:name', to: 'categories#search'
+
       resources :categories, only: [:index]
+
+
     end
   end
+
+  #  get '/search/:name', to: 'categories#search'
 
 end

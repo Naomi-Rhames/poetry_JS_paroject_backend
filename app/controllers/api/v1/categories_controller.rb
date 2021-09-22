@@ -5,4 +5,5 @@ class Api::V1::CategoriesController < ApplicationController
         
         render json: CategorySerializer.new(categories)
     end
+    
 end

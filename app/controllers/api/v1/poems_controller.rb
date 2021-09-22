@@ -1,6 +1,5 @@
 class Api::V1::PoemsController < ApplicationController
 
-
     def create
         poem = Poem.new(poem_params)
         if poem.save
