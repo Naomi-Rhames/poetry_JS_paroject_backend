@@ -1,3 +1,5 @@
 class User < ApplicationRecord
-    belongs_to :poem
+    has_many :poems, dependent: :destroy
+
+    validates :username, uniqueness: { case_sensitive: false }
 end

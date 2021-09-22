@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Category.destroy_all
+Poem.destroy_all
+
 
 haiku = Category.create(name: "Haiku")
 free_verse = Category.create(name: "Free Verse")
