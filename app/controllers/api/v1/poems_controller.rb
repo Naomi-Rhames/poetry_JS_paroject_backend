@@ -10,6 +10,7 @@ class Api::V1::PoemsController < ApplicationController
     end
 
 
+
     def index
         poems = Poem.all
         # render json: poems #making sure that rails can read the data from JSON

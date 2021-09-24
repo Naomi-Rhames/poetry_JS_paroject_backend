@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
     namespace :v1 do
       resources :poems, only: [:index, :create, :update, :destroy]
-      resources :categories, only: [:index]
+      resources :categories, only: [:index, :show]
 
     end
   end
