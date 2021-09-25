@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       resources :poems, only: [:index, :create, :update, :destroy]
       resources :categories, only: [:index, :show]
 
+      get '/search/:name', to: 'categories#search'
+
+      
     end
   end
 

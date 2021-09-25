@@ -1,5 +1,10 @@
 class Api::V1::CategoriesController < ApplicationController
 
+    def search
+        categories = Category.where(name: params[:name]).first
+        render json: categories&.poems
+    end
+
     def index
        
         categories = Category.all
@@ -7,14 +12,14 @@ class Api::V1::CategoriesController < ApplicationController
          render json: CategorySerializer.new(categories)
     end
 
-#     def show
-#        if categories = Category.find(params[:id])
-#          categories.poems
-#          render json: CategorySerializer.new(categories)
-#     else
-#         categories = Category.all
+    def show
+       if category = Category.find(params[:id])
+         category.poems
+         render json: CategorySerializer.new(categories)
+    else
+      render json: {message: "Category was not found!"}
+        end
+    end
 
-#          render json: CategorySerializer.new(categories)
-#         end
-#     end
-# end
+
+end
